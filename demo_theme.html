@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍜 Demo Theme Món Ăn Việt Nam</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700;900&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === RESET === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: linear-gradient(135deg, 
+                #FF6B6B 0%,
+                #FFD93D 25%,
+                #6BCB77 50%,
+                #4D96FF 75%,
+                #FF6B6B 100%
+            );
+            background-size: 400% 400%;
+            animation: vietnameseFoodGradient 20s ease infinite;
+            min-height: 100vh;
+            padding: 2rem;
+            overflow-x: hidden;
+        }
+        
+        @keyframes vietnameseFoodGradient {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* === HEADER === */
+        .header {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, 
+                #FF6B6B,
+                #FFD93D,
+                #6BCB77,
+                #FF9A3D
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: titleBounce 2s ease-in-out infinite alternate;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 61, 0.5));
+        }
+        
+        @keyframes titleBounce {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+        
+        .header p {
+            font-size: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin: 1rem 0;
+        }
+        
+        .food-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 3rem;
+            margin: 2rem 0;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .divider {
+            width: 200px;
+            height: 5px;
+            background: linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCB77);
+            margin: 2rem auto;
+            border-radius: 3px;
+        }
+        
+        /* === CONTAINER === */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* === CARD === */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 3px solid rgba(255, 107, 107, 0.3);
+            border-radius: 25px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card::before {
+            content: '🌾';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2.5rem;
+            opacity: 0.2;
+            animation: rotate 5s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 215, 61, 0.6);
+            box-shadow: 
+                0 15px 50px rgba(255, 107, 107, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+        
+        .card h2 {
+            color: #FF6B6B;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .card h2::before {
+            content: '🌶️';
+            animation: iconSpin 3s linear infinite;
+        }
+        
+        @keyframes iconSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* === GRID === */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        /* === BUTTON === */
+        .button {
+            background: linear-gradient(135deg, 
+                #FF6B6B 0%, 
+                #FFD93D 50%, 
+                #FF6B6B 100%
+            );
+            background-size: 200% 200%;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+            padding: 20px 45px;
+            cursor: pointer;
+            box-shadow: 
+                0 10px 30px rgba(255, 107, 107, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            margin: 1rem 0.5rem;
+            animation: primaryButtonGradient 3s ease infinite;
+        }
+        
+        @keyframes primaryButtonGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .button::before {
+            content: '🍜';
+            position: absolute;
+            left: 20px;
+            font-size: 1.8rem;
+            animation: buttonIconBounce 1s ease-in-out infinite;
+        }
+        
+        @keyframes buttonIconBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 15px 40px rgba(255, 107, 107, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+        
+        .button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        .button.secondary {
+            background: linear-gradient(135deg, 
+                #6BCB77 0%, 
+                #4D96FF 50%, 
+                #6BCB77 100%
+            );
+        }
+        
+        .button.secondary::before {
+            content: '🔄';
+        }
+        
+        /* === INPUT === */
+        .input-group {
+            margin: 1.5rem 0;
+        }
+        
+        .input-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #333;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .input-group label::before {
+            content: '🌶️';
+            font-size: 1.3rem;
+        }
+        
+        .upload-area {
+            border: 4px dashed rgba(255, 107, 107, 0.6);
+            border-radius: 25px;
+            background: linear-gradient(135deg, 
+                rgba(255, 215, 61, 0.1) 0%, 
+                rgba(107, 203, 119, 0.1) 100%
+            );
+            padding: 3rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .upload-area:hover {
+            border-color: #FFD93D;
+            background: linear-gradient(135deg, 
+                rgba(255, 215, 61, 0.2) 0%, 
+                rgba(107, 203, 119, 0.2) 100%
+            );
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+        
+        .upload-area p {
+            font-size: 1.5rem;
+            color: rgba(255, 107, 107, 0.8);
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+        
+        .upload-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: uploadPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes uploadPulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+        
+        /* === RESULT === */
+        .result {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(255, 215, 61, 0.1) 100%
+            );
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            border: 2px solid rgba(255, 107, 107, 0.2);
+        }
+        
+        .result h3 {
+            color: #FF6B6B;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .result h3::before {
+            content: '🍜 ';
+        }
+        
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 107, 107, 0.1);
+        }
+        
+        .result-label {
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .result-value {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #FF6B6B;
+        }
+        
+        /* === FEATURES === */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 107, 107, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+            border-color: #FFD93D;
+        }
+        
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: featureFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes featureFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .feature-card:nth-child(2) .feature-icon {
+            animation-delay: 0.5s;
+        }
+        
+        .feature-card:nth-child(3) .feature-icon {
+            animation-delay: 1s;
+        }
+        
+        .feature-card h3 {
+            color: #FF6B6B;
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* === FOOTER === */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-top: 3px solid rgba(255, 107, 107, 0.3);
+            border-radius: 25px;
+        }
+        
+        .footer-icons {
+            font-size: 3rem;
+            margin: 1rem 0;
+        }
+        
+        .footer h3 {
+            color: white;
+            font-size: 2rem;
+            margin: 1rem 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .footer p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0.5rem 0;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .button {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* === SCROLLBAR === */
+        ::-webkit-scrollbar {
+            width: 14px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 215, 61, 0.1) 100%
+            );
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, 
+                #FF6B6B 0%, 
+                #FFD93D 50%, 
+                #FF6B6B 100%
+            );
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, 
+                #FFD93D 0%, 
+                #FF6B6B 50%, 
+                #FFD93D 100%
+            );
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <h1>🍜 GIAO DIỆN AI THEME MÓN ĂN VIỆT NAM 🇻🇳</h1>
+        <p>✨ Phân tích hình ảnh với giao diện đậm chất ẩm thực Việt ✨</p>
+        <div class="food-icons">
+            <span>🍜</span>
+            <span>🥖</span>
+            <span>🍚</span>
+            <span>🥢</span>
+            <span>🌶️</span>
+            <span>🥗</span>
+            <span>🍲</span>
+        </div>
+        <div class="divider"></div>
+    </div>
+    
+    <!-- CONTAINER -->
+    <div class="container">
+        <!-- DEMO CARD -->
+        <div class="card">
+            <h2>Giao diện demo - Theme ẩm thực Việt Nam</h2>
+            <p style="font-size: 1.1rem; color: #666; line-height: 1.8;">
+                Đây là bản demo HTML thuần để bạn xem trước thiết kế giao diện. 
+                Để sử dụng đầy đủ chức năng AI, vui lòng chạy file Python <strong>vietnamese_food_theme_interface.py</strong>
+            </p>
+        </div>
+        
+        <!-- UPLOAD SECTION -->
+        <div class="grid">
+            <div class="card">
+                <h2>Tải lên hình ảnh</h2>
+                <div class="input-group">
+                    <label>Chọn ảnh của bạn</label>
+                    <div class="upload-area" onclick="alert('Đây chỉ là demo! Hãy chạy file Python để upload thực sự.')">
+                        <div class="upload-icon">📸</div>
+                        <p>Click hoặc kéo thả ảnh vào đây</p>
+                        <p style="font-size: 1rem; color: #999; margin-top: 0.5rem;">
+                            JPG, PNG (Max 10MB)
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                    <button class="button" onclick="alert('Demo mode - Vui lòng chạy file Python!')">
+                        🔍 Phân tích ngay
+                    </button>
+                    <button class="button secondary" onclick="location.reload()">
+                        🔄 Làm mới
+                    </button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Kết quả phân tích</h2>
+                <div class="result">
+                    <h3>Demo kết quả</h3>
+                    
+                    <div class="result-item">
+                        <span class="result-label">🏆 Kết quả dự đoán:</span>
+                        <span class="result-value">🍜 Sinh_menh</span>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label">📈 Độ tin cậy:</span>
+                        <span class="result-value">95.8%</span>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label">⏱️ Thời gian xử lý:</span>
+                        <span class="result-value">0.8s</span>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label">🎯 Trạng thái:</span>
+                        <span class="result-value">✅ Rất tốt</span>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 1rem; padding: 1rem; background: rgba(255, 215, 61, 0.1); border-radius: 10px; color: #666;">
+                    <strong>💡 Lưu ý:</strong> Đây là kết quả demo. Để xem kết quả thực, hãy chạy ứng dụng Python với model AI!
+                </p>
+            </div>
+        </div>
+        
+        <!-- FEATURES -->
+        <div class="card">
+            <h2>Tính năng nổi bật</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Theme đẹp mắt</h3>
+                    <p>Màu sắc và thiết kế lấy cảm hứng từ ẩm thực Việt Nam: đỏ (ớt), vàng (nghệ), xanh (rau)</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Nhanh chóng</h3>
+                    <p>Xử lý và phân tích hình ảnh chỉ trong vài giây với hiệu suất cao</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive</h3>
+                    <p>Tương thích hoàn hảo trên mọi thiết bị: Desktop, Tablet, Mobile</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Animation mượt</h3>
+                    <p>Hiệu ứng chuyển động đẹp mắt, tạo trải nghiệm người dùng tuyệt vời</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI mạnh mẽ</h3>
+                    <p>Sử dụng TensorFlow và Neural Network để phân tích chính xác</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Bảo mật</h3>
+                    <p>Xử lý local, không upload lên server nào, đảm bảo riêng tư</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- INSTRUCTIONS -->
+        <div class="card">
+            <h2>Hướng dẫn sử dụng</h2>
+            <ol style="font-size: 1.1rem; line-height: 2; color: #666; padding-left: 2rem;">
+                <li><strong>Cài đặt:</strong> <code>pip install gradio tensorflow opencv-python pillow numpy</code></li>
+                <li><strong>Chạy:</strong> <code>python vietnamese_food_theme_interface.py</code></li>
+                <li><strong>Upload:</strong> Chọn ảnh từ máy tính của bạn</li>
+                <li><strong>Phân tích:</strong> Click button "Phân tích ngay" để xử lý</li>
+                <li><strong>Xem kết quả:</strong> Kết quả hiển thị với icon món ăn và độ tin cậy</li>
+            </ol>
+            
+            <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 215, 61, 0.1)); border-radius: 15px; border-left: 5px solid #FF6B6B;">
+                <strong style="color: #FF6B6B; font-size: 1.2rem;">⚠️ Quan trọng:</strong>
+                <p style="margin-top: 0.5rem; color: #666; line-height: 1.6;">
+                    File HTML này chỉ là bản demo thiết kế. Để sử dụng đầy đủ chức năng AI, 
+                    bạn cần chạy file Python <strong>vietnamese_food_theme_interface.py</strong> 
+                    với model đã được train.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="footer-icons">
+            🍜 🥖 🍚 🥢 🌶️
+        </div>
+        <h3>Giao Diện Ẩm Thực Việt Nam</h3>
+        <p style="font-style: italic; margin: 1rem 0;">
+            ⚠️ <strong>Lưu ý:</strong> Đây là ứng dụng demo với theme trang trí món ăn Việt Nam
+        </p>
+        <p style="font-size: 1rem;">
+            Phát triển với ❤️ và 🍜 • TensorFlow + Gradio • 2025
+        </p>
+        <div style="margin-top: 1.5rem; font-size: 2rem;">
+            🇻🇳 ✨ 🎉 💫 ⭐
+        </div>
+    </div>
+    
+    <script>
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🍜 Vietnamese Food Theme loaded successfully!');
+            
+            // Animate elements on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.card, .feature-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
